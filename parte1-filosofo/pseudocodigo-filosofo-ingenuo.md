@@ -12,8 +12,8 @@ Para cada filósofo p, em paralelo:
     pensar()
     estado[p] <- "com fome"
 
-    adquirir(garfo_esquerda(p))  // pode bloquear se garfo ocupado
-    adquirir(garfo_direita(p))   // pode bloquear se garfo ocupado
+    adquirir(garfo_esquerda(p))  
+    adquirir(garfo_direita(p))  
 
     estado[p] <- "comendo"
     comer()
