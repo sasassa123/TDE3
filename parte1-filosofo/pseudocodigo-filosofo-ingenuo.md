@@ -1,5 +1,3 @@
-
-
 Dados:
   N = 5 filósofos numerados de 0 a N-1
   Garfos 0..N-1 (garfo i entre filósofo i e (i+1) mod N)
@@ -14,8 +12,8 @@ Para cada filósofo p, em paralelo:
     pensar()
     estado[p] <- "com fome"
 
-    adquirir(garfo_esquerda(p))  
-    adquirir(garfo_direita(p))  
+    adquirir(garfo_esquerda(p))  // pode bloquear se garfo ocupado
+    adquirir(garfo_direita(p))   // pode bloquear se garfo ocupado
 
     estado[p] <- "comendo"
     comer()
@@ -24,5 +22,3 @@ Para cada filósofo p, em paralelo:
     liberar(garfo_direita(p))
 
     estado[p] <- "pensando"
-
-Se todos executarem adquirir(garfo_esquerda(p)) ao mesmo tempo, cada um segura um garfo e fica esperando o outro: impasse.
