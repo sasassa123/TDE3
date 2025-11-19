@@ -1,5 +1,4 @@
-# TDE3
-# Trabalho de Concorrência – Filosofos, Threads, Semáforos e Deadlock
+# TDE3-Trabalho de Concorrência – Filosofos, Threads, Semáforos e Deadlock
 
 Este repositório contém a implementação completa do trabalho solicitado pelo professor, abordando três temas fundamentais de concorrência:
 
