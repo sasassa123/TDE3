@@ -1,3 +1,6 @@
+
+
+```
 Dados:
   N = 5 filósofos numerados de 0 a N-1
   Garfos 0..N-1 (garfo i entre filósofo i e (i+1) mod N)
