@@ -1,4 +1,4 @@
-
+## Protocolo ingênuo com possibilidade de deadlock
 
 ```
 Dados:
@@ -16,7 +16,7 @@ Para cada filósofo p, em paralelo:
     estado[p] <- "com fome"
 
     adquirir(garfo_esquerda(p))  
-    adquirir(garfo_direita(p))  
+    adquirir(garfo_direita(p))   
 
     estado[p] <- "comendo"
     comer()
@@ -25,3 +25,6 @@ Para cada filósofo p, em paralelo:
     liberar(garfo_direita(p))
 
     estado[p] <- "pensando"
+```
+
+   Se todos executarem adquirir(garfo_esquerda(p)) ao mesmo tempo, cada um segura um garfo e fica esperando o outro: impasse.
