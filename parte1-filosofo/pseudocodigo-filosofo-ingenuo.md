@@ -27,4 +27,4 @@ Para cada filósofo p, em paralelo:
     estado[p] <- "pensando"
 ```
 
-   Se todos executarem adquirir(garfo_esquerda(p)) ao mesmo tempo, cada um segura um garfo e fica esperando o outro: impasse.
+   Se todos executarem adquirir(garfo_esquerda(p)) ao mesmo tempo, cada um segura um garfo e fica esperando o outro causando um impasse.
