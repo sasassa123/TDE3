@@ -1,4 +1,4 @@
-## Protocolo ingênuo com possibilidade de deadlock
+## Pseudocódigo-Protocolo ingênuo com possibilidade de deadlock
 
 ```
 Dados:
