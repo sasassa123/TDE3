@@ -1,38 +1,32 @@
-public class DeadlockDemo {
+import java.util.concurrent.*;
 
+public class DeadlockDemo {
     static final Object LOCK_A = new Object();
     static final Object LOCK_B = new Object();
-
+    
     public static void main(String[] args) {
-
         Thread t1 = new Thread(() -> {
             synchronized (LOCK_A) {
-                System.out.println("T1: adquiriu LOCK_A");
-                dormir(100);
-
-                System.out.println("T1: tentando LOCK_B...");
+                dormir(50);
                 synchronized (LOCK_B) {
-                    System.out.println("T1: concluiu (A -> B)");
+                    System.out.println("T1 concluiu");
                 }
             }
         });
-
+        
         Thread t2 = new Thread(() -> {
             synchronized (LOCK_B) {
-                System.out.println("T2: adquiriu LOCK_B");
-                dormir(100);
-
-                System.out.println("T2: tentando LOCK_A...");
+                dormir(50);
                 synchronized (LOCK_A) {
-                    System.out.println("T2: concluiu (B -> A)");
+                    System.out.println("T2 concluiu");
                 }
             }
         });
-
+        
         t1.start();
         t2.start();
     }
-
+    
     static void dormir(long ms) {
         try {
             Thread.sleep(ms);
