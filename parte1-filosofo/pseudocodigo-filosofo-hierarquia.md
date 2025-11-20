@@ -1,14 +1,11 @@
-# Pseudocódigo – Protocolo Ingênuo com possibilidade de deadlock
+# Pseudocódigo – Protocólo correto hierarquia de recursos sem deadlock
 
-Este protocolo representa o comportamento típico onde cada filósofo tenta pegar primeiro o garfo da esquerda e depois o da direita.  
-Este método pode levar a deadlock quando todos pegam o garfo esquerdo ao mesmo tempo.
 
 ```
 Dados:
-  N = 5 filósofos numerados de 0 a N-1
-  Garfos 0..N-1 (garfo i entre filósofo i e (i+1) mod N)
+  N = 5 filósofos
+  Garfos 0..N-1
 
-Funções auxiliares:
   garfo_esquerda(p) = p
   garfo_direita(p)  = (p + 1) mod N
 
@@ -18,16 +15,22 @@ Para cada filósofo p, em paralelo:
     pensar()
     estado[p] <- "com fome"
 
-    adquirir(garfo_esquerda(p))  
-    adquirir(garfo_direita(p))   
+    left  = min(garfo_esquerda(p), garfo_direita(p))
+    right = max(garfo_esquerda(p), garfo_direita(p))
+
+    adquirir(left)   
+    adquirir(right)  
 
     estado[p] <- "comendo"
     comer()
 
-    liberar(garfo_esquerda(p))
-    liberar(garfo_direita(p))
+    liberar(right)
+    liberar(left)
 
     estado[p] <- "pensando"
 
+```
+
+Esse protocolo remove a espera circular, pois não existe ciclo no grafo de dependências entre garfos.
 
 
