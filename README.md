@@ -6,7 +6,7 @@ Este repositório contém a implementação completa do trabalho solicitado pelo
 2. Condição de Corrida e Semáforo Binário Semaphore  
 3. Reprodução de Deadlock e Solução com Hierarquia de Locks
 
-Todo o código foi implementado em Java, com explicações, pseudocódigos e um relatório detalhado em Markdown.
+
 
 
 
