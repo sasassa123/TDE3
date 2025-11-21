@@ -1,43 +1,37 @@
-public class DeadlockResolvido {
+import java.util.concurrent.*;
 
+public class DeadlockResolvido {
     static final Object LOCK_A = new Object();
     static final Object LOCK_B = new Object();
-
+    
     public static void main(String[] args) {
-
         Thread t1 = new Thread(() -> {
-            
             synchronized (LOCK_A) {
-                System.out.println("T1: adquiriu LOCK_A");
-                dormir(100);
-
+                dormir(50);
                 synchronized (LOCK_B) {
-                    System.out.println("T1: concluiu (A -> B)");
+                    System.out.println("T1 concluiu (A -> B)");
                 }
             }
         });
-
+        
         Thread t2 = new Thread(() -> {
-            
             synchronized (LOCK_A) {
-                System.out.println("T2: adquiriu LOCK_A");
-                dormir(100);
-
+                dormir(50);
                 synchronized (LOCK_B) {
-                    System.out.println("T2: concluiu (A -> B)");
+                    System.out.println("T2 concluiu (A -> B)");
                 }
             }
         });
-
+        
         t1.start();
         t2.start();
     }
-
+    
     static void dormir(long ms) {
-        try {
-            Thread.sleep(ms);
+        try { 
+            Thread.sleep(ms); 
         } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
+            Thread.currentThread().interrupt(); 
         }
     }
 }
