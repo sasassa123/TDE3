@@ -4,30 +4,23 @@
 ```
 Dados:
   N = 5 filósofos
-  Garfos 0..N-1
+  Garfos 0..N-1 (garfo i fica entre filósofos i e (i+1) mod N)
 
-  garfo_esquerda(p) = p
-  garfo_direita(p)  = (p + 1) mod N
+Para cada filósofo p:
+  left = min(garfo_esquerda(p), garfo_direita(p))
+  right = max(garfo_esquerda(p), garfo_direita(p))
 
-Para cada filósofo p, em paralelo:
+Loop:
+  pensar()
+  estado[p] <- "com fome"
+  adquirir(left)    
+  adquirir(right) 
+  estado[p] <- "comendo"
+  comer()
+  liberar(right)
+  liberar(left)
+  estado[p] <- "pensando"
 
-  Loop infinito:
-    pensar()
-    estado[p] <- "com fome"
-
-    left  = min(garfo_esquerda(p), garfo_direita(p))
-    right = max(garfo_esquerda(p), garfo_direita(p))
-
-    adquirir(left)   
-    adquirir(right)  
-
-    estado[p] <- "comendo"
-    comer()
-
-    liberar(right)
-    liberar(left)
-
-    estado[p] <- "pensando"
 
 ```
 
