@@ -28,10 +28,10 @@ public class DeadlockDemo {
     }
     
     static void dormir(long ms) {
-        try {
-            Thread.sleep(ms);
+        try { 
+            Thread.sleep(ms); 
         } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
+            Thread.currentThread().interrupt(); 
         }
     }
 }
