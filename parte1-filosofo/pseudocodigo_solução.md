@@ -13,10 +13,10 @@ Para cada filósofo p, em paralelo:
     pensar()
     estado[p] <- "com fome"
 
-    adquirir(Garçom)              // Pedido ao garçom
-    adquirir(garfo_esquerda(p))   // Somente depois que o garçom permitir
+    adquirir(Garçom)              
+    adquirir(garfo_esquerda(p))   
     adquirir(garfo_direita(p))
-    liberar(Garçom)               // Libera o garçom para outro filósofo pedir
+    liberar(Garçom)               
 
     estado[p] <- "comendo"
     comer()
